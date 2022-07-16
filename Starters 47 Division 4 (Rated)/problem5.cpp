@@ -1,38 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl "\n"
-typedef long long LL;
+typedef long long ll;
 
 void solve()
 {
     int n;
     cin >> n;
-    int arr[n], bi, li;
-    for (int i = 0; i < n; ++i)
+    int arr[n + 1], id1, idn;
+    for (int i = 1; i <= n; ++i)
     {
         cin >> arr[i];
         if (arr[i] == 1)
-            bi = i;
+            id1 = i;
         if (arr[i] == n)
-            li = i;
+            idn = i;
     }
 
-    if (bi == 0 && li == n - 1)
-        cout << 0 << endl;
+    if (id1 < idn)
+        cout << id1 + n - 1 - idn << endl;
     else
-    {
-
-        int liD = n - 1 - li;
-        int biD = bi;
-        int swaps = liD + biD;
-
-        // cout << liD << " " << biD << endl;
-
-        if (biD - liD <= 0)
-            swaps -= 1;
-
-        cout << swaps << endl;
-    }
+        cout << id1 + n - 1 - idn - 1 << endl;
 }
 
 int main()
