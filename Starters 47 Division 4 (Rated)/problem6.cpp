@@ -17,26 +17,50 @@ void solve()
         else
             h[height] = 1;
     }
-    int swaps = 0;
+
+    int maxHeight = (--h.end())->first;
+    int incs = 0;
+    int incMaxHeight = 0;
+
     for (auto e : h)
     {
-        if (e.second == 1)
-            swaps++;
+        if (e.second == 1 && e.first != maxHeight)
+            incs++;
+        else if (e.second == 1 && e.first == maxHeight)
+            incMaxHeight = 1;
     }
-    if (swaps == 0)
-        cout << 0 << endl;
+
+    if (incs == 0 && incMaxHeight == 1)
+    {
+        bool gGre2 = false;
+        for (auto e : h)
+        {
+            if (e.second >= 3)
+            {
+                gGre2 = true;
+                break;
+            }
+        }
+        if (gGre2)
+            incs += 1;
+        else
+            incs += 2;
+    }
     else
     {
-        if (swaps % 2 != 0)
-            swaps = (swaps / 2) + 1;
+        incs += incMaxHeight;
+        if (incs % 2 != 0)
+            incs = (incs / 2) + 1;
         else
-            swaps = swaps / 2;
-        cout << swaps << endl;
+            incs = incs / 2;
     }
+    cout << incs << endl;
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int tc;
     cin >> tc;
     while (tc--)
