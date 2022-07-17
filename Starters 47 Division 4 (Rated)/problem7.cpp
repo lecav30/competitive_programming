@@ -7,79 +7,38 @@ void solve()
 {
     int n;
     cin >> n;
-    string a;
-    cin >> a;
-    string s = "";
-
-    string alphabet[26];
-    for (int i = 0; i < 26; i++)
-        alphabet[i] = char(97 + i);
-
-    // for (int i = 0; i < 26; i++)
-    //     cout << alphabet[i] << endl;
+    string str;
+    cin >> str;
 
     bool op1 = true;
-    bool possible = false;
-
-    for (int i = 0; i < n && possible == false; ++i)
+    for (int i = n - 1; i >= 0; --i)
     {
-        string temp;
-        if (s == "")
-            for (int j = 0; j < 26; ++j)
-            {
-                temp = a[i];
-                if (alphabet[j] == temp)
-                {
-                    s += alphabet[j];
-                    op1 = false;
-                }
-            }
-        else
+        if (str.size() % 2 == 0)
         {
-            bool append = false;
-            for (int j = n; j >= i; --j)
+            int middle = str.size() / 2;
+            if (str.substr(0, middle) == str.substr(middle))
             {
-                if (s + s == a.substr(0, j))
-                {
-                    s += s;
-                    append = true;
-                    i = j - 1;
-                    op1 = true;
-                    if (s + s == a)
-                        possible = true;
-                }
-            }
-            if (!append)
-            {
-
-                if (!op1)
-                    break;
-                else
-                {
-                    for (int j = 0; j < 26; ++j)
-                    {
-                        temp = a[i];
-                        if (alphabet[j] == temp)
-                        {
-                            s += alphabet[j];
-                            op1 = false;
-                        }
-                    }
-                }
+                str = str.substr(middle);
+                i = middle;
+                op1 = true;
+                continue;
             }
         }
-        if (s == a)
-            possible = true;
-        // cout << s << " ";
+        if (op1)
+        {
+            str = str.substr(0, i);
+            op1 = false;
+        }
+        else
+            break;
     }
-    if (possible)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    cout << ((str == "") ? "YES\n" : "NO\n");
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int tc;
     cin >> tc;
     while (tc--)
