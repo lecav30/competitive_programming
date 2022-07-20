@@ -14,8 +14,6 @@ int main()
     int tc;
     cin >> tc;
     while (tc--)
-    {
         solve();
-    }
     return 0;
 }
