@@ -13,11 +13,11 @@ void solve()
     // ans >= n
     if (a != b)
     {
-        /* for (ll i = (n / a) * a; ans == -1; i += a) */
-        /* { */
-        /*     if (i % b != 0 && i >= n) */
-        /*         ans = i; */
-        /* } */
+        for (ll i = (n / a) * a; ans == -1; i += a)
+        {
+            if (i % b != 0 && i >= n)
+                ans = i;
+        }
     }
     cout << ans << endl;
 }
