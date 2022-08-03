@@ -31,6 +31,13 @@ long long factorial(int n)
     return ret;
 }
 
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
 vector<int> arrToVec(int arr[], int n)
 {
     vector<int> vec;
