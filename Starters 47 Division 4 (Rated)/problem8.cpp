@@ -13,27 +13,13 @@ void solve()
         vec.push_back(i);
 }
 
-void test()
-{
-    int a = 5, b = 3, c;
-    c = a & b;
-    cout << "and " << c << endl;
-    c = a | b;
-    cout << "or " << c << endl;
-    c = a ^ b;
-    cout << "xor " << c << endl;
-    c = ~a;
-    cout << "not " << c << endl;
-}
-
 int main()
 {
     ios_base::sync_with_stdio(false);
-    // cin.tie(NULL);
-    // int tc;
-    // cin >> tc;
-    // while (tc--)
-    //     solve();
-    test();
+    cin.tie(NULL);
+    int tc;
+    cin >> tc;
+    while (tc--)
+        solve();
     return 0;
 }
