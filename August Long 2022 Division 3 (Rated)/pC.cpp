@@ -64,18 +64,38 @@ void solve()
 {
     int n;
     cin >> n;
-    int arr[n - 1];
-    for (int i = 0; i < n - 1; ++i)
+    int arr[n];
+    for (int i = 1; i < n; ++i)
         cin >> arr[i];
-    // int tt = arr[0];
-    ll tt = 0, ra = 0;
-    bool arrive = false;
-    for (int i = 0; i < n; ++i)
-    {
-        if (!arrive)
-        {
+    ll tt = arr[1];
+    int a = 1, b = 0;
+    int current = 0;
+    while (b < n) {
+        if (arr[a + 1] < arr[a]) {
+            current += arr[a + 1];
+            a++;
+            tt += arr[a + 1];
+            if (current >= arr[b + 1]) {
+                tt += current;
+                current = 0;
+                b++;
+            }
+        }
+        else if (arr[a + 1] > arr[a]) {
+            tt += arr[b] - current;
+            b++;
+            current = 0;
+        }
+        else {
+            tt += arr[b];
+            a++;
+            b++;
         }
     }
+    // A: 5
+    // B: 
+    // v: 5 2 6
+    // r: 5 + 2 + 3 + 2 + 1 + 6 = 19
     cout << tt << endl;
 }
 
