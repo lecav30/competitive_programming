@@ -3,11 +3,9 @@ using namespace std;
 #define endl "\n"
 #define ll long long
 
-int sumDigits(int n)
-{
+int sumDigits(int n) {
     int sum = 0;
-    while (n / 10 > 0)
-    {
+    while (n / 10 > 0) {
         sum += n % 10;
         n /= 10;
     }
@@ -15,27 +13,21 @@ int sumDigits(int n)
     return sum;
 }
 
-long long power(int x, int y)
-{
+long long power(int x, int y) {
     long long answer = 1;
-    for (int i = 1; i <= y; i++)
-        answer *= x;
+    for (int i = 1; i <= y; i++) answer *= x;
     return answer;
 }
 
-long long factorial(int n)
-{
+long long factorial(int n) {
     long long ret = 1;
-    while (n > 1)
-        ret *= n--;
+    while (n > 1) ret *= n--;
     return ret;
 }
 
-vector<int> arrToVec(int arr[], int n)
-{
+vector<int> arrToVec(int arr[], int n) {
     vector<int> vec;
-    for (int i = 0; i < n; ++i)
-        vec.push_back(arr[i]);
+    for (int i = 0; i < n; ++i) vec.push_back(arr[i]);
     return vec;
 }
 
@@ -60,30 +52,23 @@ vector<int> arrToVec(int arr[], int n)
     }
  */
 
-void solve()
-{
-    // 2a + 2b + ab = x
-    // 2(a + b) + ab = x
-    // mult2 + ab = x
+void solve() {
     int x;
     cin >> x;
 }
 
-int main()
-{
+int main() {
     // clock_t ini = clock();
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     int tc;
     cin >> tc;
-    while (tc--)
-        solve();
-    /* for (int i = 0; i < tc; ++i) */
-    /* { */
-    /*     cout << "Case " << i + 1 << ": "; */
-    /*     solve(); */
-    /*     cout << endl; */
-    /* } */
+    while (tc--) solve();
+    // for (int i = 0; i < tc; ++i) {
+    //     cout << "Case " << i + 1 << ": ";
+    //     solve();
+    //     cout << endl;
+    // }
     // clock_t fin = clock();
     // double run_time = (double)(fin - ini) / CLOCKS_PER_SEC;
     // cout << "runtime: " << fixed << setprecision(2) << run_time << endl;
