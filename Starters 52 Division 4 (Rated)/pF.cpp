@@ -1,66 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define endl "\n"
+#define fastio                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
 #define ll long long
-
-int sumDigits(int n) {
-    int sum = 0;
-    while (n / 10 > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    sum += n % 10;
-    return sum;
-}
-
-long long power(int x, int y) {
-    long long answer = 1;
-    for (int i = 1; i <= y; i++) answer *= x;
-    return answer;
-}
-
-ll factorial(int n) {
-    if (n == 1) return 1;
-    return n * factorial(n - 1);
-}
-
-vector<int> arrToVec(int arr[], int n) {
-    vector<int> vec;
-    for (int i = 0; i < n; ++i) vec.push_back(arr[i]);
-    return vec;
-}
-
-void subsets(vector<int> &v) {
-    int n = v.size();
-    for (int mask = 0; mask < (1 << n); ++mask) {
-        for (int bit = 0; bit < n; ++bit) {
-            // subconjunto
-            if ((mask >> bit) & 1) cout << " " << v[bit];
-            // complemento del subconjunto
-            if ((~mask >> bit) & 1) cout << " " << v[bit];
-        }
-        cout << endl;
-    }
-}
+#define ENDL << "\n"
+#define IN cin >>
+#define OUT cout <<
+#define JL cout << "\n"
+#define MOD 1000000007
+#define MAXN 1000000
 
 void solve() {
     int n, k;
+    IN n >> k;
     string s;
-    cin >> n >> k >> s;
-    int max = n - k + 1;
-    cout << max << endl;
+    IN s;
+
+    vector<int> pre(n + 1);
+
+    if (s[0] == '1') {
+        pre[0]++;
+        pre[k]--;
+        s[0] = '0';
+    }
+
+    for (int i = 1; i < n; i++) {
+        pre[i] = pre[i - 1] + pre[i];
+        if (pre[i] & 1) {
+            if (s[i] == '0')
+                s[i] = '1';
+            else
+                s[i] = '0';
+        }
+        if (s[i] == '1' && i <= (n - k)) {
+            pre[i]++;
+            pre[i + k]--;
+            s[i] = '0';
+        }
+    }
+
+    OUT s ENDL;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    fastio;
     int tc;
-    cin >> tc;
+    IN tc;
     while (tc--) solve();
-    // for (int i = 0; i < tc; ++i) {
-    //     cout << "Case " << i + 1 << ": ";
-    //     solve();
-    //     cout << endl;
-    // }
     return 0;
 }
