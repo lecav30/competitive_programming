@@ -23,17 +23,16 @@ void solve() {
     }
 
     bool possible = false;
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
             possible = false;
             set<int> s;
             for (int k = 0; k < vec[i].size(); ++k) s.insert(vec[i][k]);
             for (int k = 0; k < vec[j].size(); ++k) s.insert(vec[j][k]);
             if (s.size() == 5) possible = true;
-            for (auto e : s) OUT e << " ";
-            JL;
             if (possible) break;
         }
+        if (possible) break;
     }
 
     OUT(possible ? "YES" : "NO") ENDL;
