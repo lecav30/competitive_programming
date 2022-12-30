@@ -5,14 +5,6 @@
 using namespace std;
 
 void solve() {
-    int n;
-    cin >> n;
-    string s = "1";
-    for (int i = 0; i < n - 2; ++i){ 
-        s += "0";
-    }
-    s += "1";
-    cout << s << "\n";
 }
 
 int main() {
