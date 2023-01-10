@@ -1,5 +1,5 @@
 Difficulty: 1014
 
-Attempts: 
+Attempts: 1
 
 Link: https://www.codechef.com/problems/SNAKPROC
