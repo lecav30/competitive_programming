@@ -1,5 +1,5 @@
 Difficulty: 1018
 
-Attempts: 1
+Attempts: 2
 
-Link: https://www.codechef.com/problems/VACCINQ
+https://www.codechef.com/problems/CNDY
