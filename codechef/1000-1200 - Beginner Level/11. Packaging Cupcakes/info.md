@@ -1,5 +1,5 @@
 Difficulty: 1023
 
-Attempts: 
+Attempts: 2
 
-httpswww.codechef.comproblemsMUFFINS3
+https://www.codechef.com/problems/MUFFINS3
