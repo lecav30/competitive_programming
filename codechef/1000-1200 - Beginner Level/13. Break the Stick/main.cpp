@@ -9,7 +9,15 @@
 #include <vector>
 using namespace std;
 
-void solve() {}
+void solve() {
+    int n, x;
+    cin >> n >> x;
+    if (!(n & 1)) cout << "YES\n";
+    else {
+        if (!(x & 1)) cout << "NO\n";
+        else cout << "YES\n";
+    }
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
