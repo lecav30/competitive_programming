@@ -1,5 +1,5 @@
 Difficulty: 1027
 
-Attempts: 
+Attempts: 1
 
 https://www.codechef.com/problems/ENCMSG
