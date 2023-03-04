@@ -9,7 +9,29 @@
 #include <vector>
 using namespace std;
 
-void solve() {}
+template <typename T>
+void print(T t) {
+    cout << t << "\n";
+}
+
+void solve() {
+    int a, b;
+    cin >> a >> b;
+    for (int i = 0; i < 1000; ++i) {
+        if (i & 1)
+            a -= i;
+        else
+            b -= i;
+        if (a < 0) {
+            print("Bob");
+            return;
+        }
+        if (b < 0) {
+            print("Limak");
+            return;
+        }
+    }
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
