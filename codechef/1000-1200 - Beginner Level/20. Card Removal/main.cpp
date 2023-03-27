@@ -1,14 +1,3 @@
-// #include <limits.h>
-
-// #include <algorithm>
-// #include <climits>
-// #include <cstring>
-// #include <iomanip>
-// #include <iostream>
-// #include <map>
-// #include <string>
-// #include <vector>
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -19,6 +8,19 @@ void print(T t) {
 }
 
 void solve() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) cin >> v[i];
+    vector<int> freq(10, 0);
+    for (int x : v) freq[x - 1]++;
+    int total = 0;
+    for (int x : freq) total += x;
+    int max = *max_element(freq.begin(), freq.end());
+    if (max == v.size())
+        print(0);
+    else
+        print(total - max);
 }
 
 int main() {
