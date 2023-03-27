@@ -8,6 +8,20 @@ void print(T t) {
 }
 
 void solve() {
+    int n;
+    string s;
+    cin >> n >> s;
+    vector<int> freq(26);
+    for (int i = 0; i < n; ++i) {
+        freq[s[i] - 'a']++;
+    }
+    for (int x : freq) {
+        if (x % 2 != 0) {
+            print("NO");
+            return;
+        }
+    }
+    print("YES");
 }
 
 int main() {
